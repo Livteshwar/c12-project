@@ -24,7 +24,6 @@ rabbit = createSprite(180,340,30,30);
 rabbit.scale =0.09;
 rabbit.addImage(rabbitImg);
 
-rabbit.x=mouseX
 
 }
 
@@ -34,8 +33,22 @@ function draw() {
   
   edges= createEdgeSprites();
   rabbit.collide(edges);
+  
+  rabbit.x=mouseX
 
   drawSprites();
+  
+  var select_sprites= Math.round(random(1,2))
+
+if (framecount%80==0){
+  if (select_sprites==1){
+    createApples()
+  }
+  else {
+    createleaf()
+  }
+}
+
 }
 
 function createApples (){
@@ -52,16 +65,6 @@ function createleaf (){
   leaf.lifetime=80
 }
 
-var select_sprites= Math.round(random(1,2))
-
-if (framecount%80==0){
-  if (select_sprites==1){
-    createApples()
-  }
-  else {
-    createleaf()
-  }
-}
 
 
 
